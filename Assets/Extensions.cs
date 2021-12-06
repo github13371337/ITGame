@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,4 +38,18 @@ public static class Extensions
             position.z - transform.position.z
         ).normalized;
     }
+
+    public static T[] Copy<T>(this T[] array)
+    {
+        if (array != null)
+        {
+            T[] ret = new T[array.Length];
+            for (int i = 0; i < array.Length; i++) ret.SetValue((T)array.GetValue(i), i);
+            return ret;
+        }
+        return null;
+    }
+    public static bool Contains<T>(this T[] array, T item) => Array.FindIndex(array, (t) => t.Equals(item)) >= 0;
+    public static T Find<T>(this T[] array, Predicate<T> match) => Array.Find(array, match);
+    public static int FindIndex<T>(this T[] array, Predicate<T> match) => Array.FindIndex(array, match);
 }

@@ -31,11 +31,8 @@ public class MouseLook : MonoBehaviour
     public float angleX;
 
 
-	private void Awake()
-    { 
-        camera_ = GetComponentInChildren<Camera>().gameObject;
-        SetCursorLock(true);
-	}
+	private void Awake() => camera_ = GetComponentInChildren<Camera>().gameObject;
+	
 	
 	private void Update() 
     {

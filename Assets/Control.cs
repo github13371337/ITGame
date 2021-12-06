@@ -58,6 +58,7 @@ public class Control : MonoBehaviour
     {
         character = GetComponent<Character>();
         mouse = GetComponentInChildren<MouseLook>();
+        mouse.SetCursorLock(focus == UIFocus.game ? true : false);
         FocusChange += ChangeMouseState;
     }
 

@@ -7,26 +7,39 @@ using UnityEngine;
 public class VisualGraph : MonoBehaviour
 {
     [SerializeField] Vector2GraphNode[] nodes;
-    [SerializeField] RectTransform nodeObject;
-    [SerializeField] RectTransform edgeObject;
+    [SerializeField] GUIObject nodeObject;
+    [SerializeField] GUIObject edgeObject;
+    [SerializeField] bool createOnStart;
 
     private Canvas canvas;
     private List<(int, int)> connections = new List<(int, int)>();
+    private GameObject parent;
 
-    public List<RectTransform> nodeObjects { get; private set; } = new List<RectTransform>();
-    public List<RectTransform> edgeObjects { get; private set; } = new List<RectTransform>();
+    public List<GUIObject> nodeObjects { get; private set; } = new List<GUIObject>();
+    public List<GUIObject> edgeObjects { get; private set; } = new List<GUIObject>();
 
-    private void Awake() => canvas = GetComponentInParent<Canvas>();   
+    public Vector2GraphNode[] graphCopy => nodes.Copy();
+
+    private void Awake() => canvas = GetComponentInParent<Canvas>();
+
+    private void Start() { if (createOnStart) Create(); }
 
     [ContextMenu("Create visuals")]
     public void Create()
     {
+        for (int i = 0; i < nodeObjects.Count; i++) Destroy(nodeObjects[i]);
+        for (int i = 0; i < edgeObjects.Count; i++) Destroy(edgeObjects[i]);
+        nodeObjects = new List<GUIObject>(nodes.Length);
+        edgeObjects.Clear();
+        connections.Clear();
+        if (parent != null) Destroy(parent);
+
         (int, int) connection;
         Vector3 point;
         Vector3 point2;
         Vector3 direction;
-        RectTransform edge;
-        GameObject parent = new GameObject();
+        GUIObject edge;
+        parent = new GameObject();
         parent.transform.parent = canvas.transform;
         parent.transform.localPosition = Vector3.zero;
 
@@ -61,30 +74,34 @@ public class VisualGraph : MonoBehaviour
                     edge.gameObject.SetActive(true);
                     edgeObjects.Add(edge);
 
-                    direction = edge.DirectionToTarget(point2, true);
-                    edge.eulerAngles = new Vector3
+                    direction = edge.rect.DirectionToTarget(point2, true);
+                    edge.rect.eulerAngles = new Vector3
                     (
-                        edge.eulerAngles.x,
-                        edge.eulerAngles.y,
+                        edge.rect.eulerAngles.x,
+                        edge.rect.eulerAngles.y,
                         Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg
                     );
-                    edge.sizeDelta = new Vector2(Vector3.Distance(point, point2), edge.sizeDelta.y);
+                    edge.rect.sizeDelta = new Vector2(Vector3.Distance(point, point2), edge.rect.sizeDelta.y);
                 }
             }
         }
 
         for (int i = 0; i < edgeObjects.Count; i++)
         {
-            edgeObjects[i].SetParent(parent.transform);
-            edgeObjects[i].localScale = new Vector3(1f, 1f, 1f);
+            edgeObjects[i].rect.SetParent(parent.transform);
+            edgeObjects[i].rect.localScale = new Vector3(1f, 1f, 1f);
         }
         for (int i = 0; i < nodeObjects.Count; i++)
         {
-            nodeObjects[i].SetParent(parent.transform);
-            nodeObjects[i].localScale = new Vector3(1f, 1f, 1f);
+            nodeObjects[i].rect.SetParent(parent.transform);
+            nodeObjects[i].rect.localScale = new Vector3(1f, 1f, 1f);
         }
 
         parent.transform.position = transform.position;
         parent.transform.localScale = transform.localScale;
+
+        GraphCreated?.Invoke(nodeObjects, edgeObjects);
     }
+
+    public event Action<List<GUIObject>, List<GUIObject>> GraphCreated;
 }

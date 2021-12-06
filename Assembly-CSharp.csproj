@@ -61,9 +61,15 @@
      <Compile Include="Assets\EditorReadOnlyAttribute.cs" />
      <Compile Include="Assets\Extensions.cs" />
      <Compile Include="Assets\Graph.cs" />
+     <Compile Include="Assets\GraphGame.cs" />
+     <Compile Include="Assets\GUIEventButton.cs" />
+     <Compile Include="Assets\GUIInteractiveObject.cs" />
+     <Compile Include="Assets\GUIObject.cs" />
      <Compile Include="Assets\HideAttribute.cs" />
      <Compile Include="Assets\MouseLook.cs" />
+     <Compile Include="Assets\Player.cs" />
      <Compile Include="Assets\VisualGraph.cs" />
+     <Compile Include="Assets\WinEvent.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Docs/Code/Unity/hjklfbaerljkvjgnaelriktunblskrjtgnlairetnbghjb/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
