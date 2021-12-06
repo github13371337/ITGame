@@ -59,8 +59,11 @@
      <Compile Include="Assets\Constants.cs" />
      <Compile Include="Assets\Control.cs" />
      <Compile Include="Assets\EditorReadOnlyAttribute.cs" />
+     <Compile Include="Assets\Extensions.cs" />
+     <Compile Include="Assets\Graph.cs" />
      <Compile Include="Assets\HideAttribute.cs" />
      <Compile Include="Assets\MouseLook.cs" />
+     <Compile Include="Assets\VisualGraph.cs" />
  <Reference Include="Unity.Timeline.Editor">
  <HintPath>D:/Docs/Code/Unity/hjklfbaerljkvjgnaelriktunblskrjtgnlairetnbghjb/New Unity Project/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
