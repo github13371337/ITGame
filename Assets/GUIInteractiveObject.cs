@@ -12,6 +12,5 @@ public abstract class GUIInteractiveObject : GUIObject
 
     public event System.Action<GUIInteractiveObject> Interaction;
 
-    public void PurgeInteraction() => Interaction = null;
     protected void OnInteraction() => Interaction?.Invoke(this);
 }
