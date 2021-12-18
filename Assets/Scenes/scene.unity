@@ -242,22 +242,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 232489134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad40200225781d4f888dc7fccb7e7fe, type: 3}
+  m_Script: {fileID: 11500000, guid: dcbae53fa01034245b47ca90649c758d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Focus: 0
-  horizontalAxisActive: 0
-  verticalAxisActive: 0
-  movement: {x: 0, y: 0, z: 0}
-  Mass: 3
-  fallSpeedLimit: -10
-  groundedGravity: -1
-  jumpSpeeds:
-  - 10
-  infiniteJumps: 0
-  checkSlope: 0
-  slipping: 0.1
-  alwaysRun: 0
+  MoveSpeed: 10
+  RunSpeed: 10
+  RotationSpeed: 10
+  groundContactMinDistance: 1
+  targetingAngleLimit: 1
+  Stats:
+    MaxHealth: 100
+    Damage: 10
+    AttackDelay: 0.5
+  currentState: 0
 --- !u!23 &232489136
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -329,13 +326,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 232489134}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec24a8c842176064d91e82de9bcad651, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c330f3834bc6784a83230d81db67bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  RunSpeed: 10
-  groundContactMinDistance: 1
-  currentState: 0
+  Focus: 0
+  horizontalAxisActive: 0
+  verticalAxisActive: 0
+  movement: {x: 0, y: 0, z: 0}
+  Mass: 1
+  fallSpeedLimit: -10
+  groundedGravity: -1.5
+  jumpSpeeds:
+  - 1
+  infiniteJumps: 0
+  checkSlope: 0
+  slipping: 0.1
+  alwaysRun: 0
 --- !u!143 &232489140
 CharacterController:
   m_ObjectHideFlags: 0
@@ -488,7 +494,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 457287229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7520c303cf69e4fb719e8b381ba7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3847fdb874a49314ca1ca50fc2b1e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axis: -1
