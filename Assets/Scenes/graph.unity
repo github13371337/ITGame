@@ -422,7 +422,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 342133827}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0e63ce6662edd4299c9907832699fc, type: 3}
+  m_Script: {fileID: 11500000, guid: f91e18fa01b12e34d89bfdd0c9c63f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anchor: 4
@@ -846,10 +846,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1188846715}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0e63ce6662edd4299c9907832699fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a81c1d2375c15a47a80061e262f9d0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchor: 4
+  anchor: 3
   hiddenOnStart: 0
 --- !u!1 &1602643001
 GameObject:
@@ -899,10 +899,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1602643001}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0e63ce6662edd4299c9907832699fc, type: 3}
+  m_Script: {fileID: 11500000, guid: f91e18fa01b12e34d89bfdd0c9c63f3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anchor: 0
+  anchor: 4
   hiddenOnStart: 0
 --- !u!114 &1602643004
 MonoBehaviour:
@@ -969,7 +969,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809975417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ad40200225781d4f888dc7fccb7e7fe, type: 3}
+  m_Script: {fileID: 11500000, guid: 176efd562808e2a438c169d8266c83ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveSpeed: 0
+  RunSpeed: 0
+  RotationSpeed: 0
+  groundContactMinDistance: 0
+  targetingAngleLimit: 0
+  Stats:
+    MaxHealth: 100
+    Damage: 10
+    AttackDelay: 0.5
+  currentState: 0
+--- !u!114 &1809975419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809975417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c330f3834bc6784a83230d81db67bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Focus: 1
@@ -984,22 +1006,6 @@ MonoBehaviour:
   checkSlope: 0
   slipping: 0.1
   alwaysRun: 0
---- !u!114 &1809975419
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1809975417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec24a8c842176064d91e82de9bcad651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MoveSpeed: 0
-  RunSpeed: 0
-  groundContactMinDistance: 0
-  currentState: 0
 --- !u!143 &1809975420
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1042,7 +1048,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1809975417}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d7520c303cf69e4fb719e8b381ba7d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 3847fdb874a49314ca1ca50fc2b1e0fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   axis: 0
